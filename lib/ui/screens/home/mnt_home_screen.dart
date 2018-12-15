@@ -34,10 +34,7 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
             Center(
               child: Text(
                 'Hello',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .display1,
+                style: Theme.of(context).textTheme.display1,
               ),
             ),
           ],

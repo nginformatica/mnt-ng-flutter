@@ -21,9 +21,10 @@ Widget LoginButtons(
       ]);
 }
 
-Widget _LoginButton({@required Color color,
-  @required String text,
-  @required VoidCallback onPress}) {
+Widget _LoginButton(
+    {@required Color color,
+    @required String text,
+    @required VoidCallback onPress}) {
   return Flexible(
     fit: FlexFit.tight,
     child: FlatButton(
