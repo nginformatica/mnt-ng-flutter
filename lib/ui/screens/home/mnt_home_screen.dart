@@ -1,9 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:mnt_flutter/constants/assets.dart';
-import 'package:mnt_flutter/navigation/router.dart';
-import 'package:mnt_flutter/ui/widgets/loaders/default_loader.dart';
 
 class MntHomeScreen extends StatefulWidget {
   MntHomeScreen({Key key, this.title}) : super(key: key);
@@ -18,29 +13,31 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () => Router.goToHome(context));
+  }
+
+  BottomNavigationBar _buildBottomNavigation() {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text("")),
+        BottomNavigationBarItem(icon: Icon(Icons.wrap_text), title: Text(""))
+      ],
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.indigoAccent,
+        bottomNavigationBar: _buildBottomNavigation(),
         body: Stack(
           children: <Widget>[
             Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(Assets.appIcon, width: 100.0),
-                  Text(
-                    'Nice Animals',
-                    style: Theme.of(context).textTheme.display1,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 40.0),
-                    child: DefaultLoader(),
-                  )
-                ],
+              child: Text(
+                'Hello',
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .display1,
               ),
             ),
           ],

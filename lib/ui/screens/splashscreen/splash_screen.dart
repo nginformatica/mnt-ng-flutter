@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:mnt_flutter/constants/CustomColors.dart';
 import 'package:mnt_flutter/constants/assets.dart';
 import 'package:mnt_flutter/navigation/router.dart';
 import 'package:mnt_flutter/ui/widgets/loaders/default_loader.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: CustomColors.splashScreen,
         body: Stack(
           children: <Widget>[
             Center(
