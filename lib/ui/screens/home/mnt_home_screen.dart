@@ -10,13 +10,28 @@ class MntHomeScreen extends StatefulWidget {
 }
 
 class _MntHomeScreenState extends State<MntHomeScreen> {
+  int _currentIndex = 0;
+  final List<Widget> children = [
+    _HelloScreen("First"),
+    _HelloScreen("Second"),
+    _HelloScreen("Third"),
+  ];
+
   @override
   void initState() {
     super.initState();
   }
 
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   BottomNavigationBar _buildBottomNavigation() {
     return BottomNavigationBar(
+      onTap: _onTabTapped,
+      currentIndex: _currentIndex,
       items: [
         BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text("")),
         BottomNavigationBarItem(icon: Icon(Icons.wrap_text), title: Text(""))
@@ -29,15 +44,26 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
     return Scaffold(
         backgroundColor: Colors.indigoAccent,
         bottomNavigationBar: _buildBottomNavigation(),
-        body: Stack(
-          children: <Widget>[
-            Center(
-              child: Text(
-                'Hello',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ),
-          ],
-        ));
+        body: children[_currentIndex]);
+  }
+}
+
+class _HelloScreen extends StatelessWidget {
+  final String message;
+
+  const _HelloScreen(this.message);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Center(
+          child: Text(
+            'Hello ${message}',
+            style: Theme.of(context).textTheme.display1,
+          ),
+        ),
+      ],
+    );
   }
 }
