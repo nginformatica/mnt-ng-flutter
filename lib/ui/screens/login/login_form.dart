@@ -6,7 +6,7 @@ import 'package:mnt_flutter/ui/screens/login/widgets/login_inputs.dart';
 
 class LoginForm extends StatefulWidget {
   @override
-  _LoginFormState createState() => new _LoginFormState();
+  _LoginFormState createState() => _LoginFormState();
 }
 
 Widget _InputVerticalSpace(double value) {
@@ -24,11 +24,11 @@ class _LoginFormState extends State<LoginForm> {
   // Note: This is a `GlobalKey<FormState>`, not a GlobalKey<MyCustomFormState>!
   final _formKey = GlobalKey<FormState>();
 
-  _onDemoPress() {
+  void _onDemoPress() {
     Router.goToHome(context);
   }
 
-  _onLoginPress() {}
+  void _onLoginPress() {}
 
   List<Widget> _children() {
     return [

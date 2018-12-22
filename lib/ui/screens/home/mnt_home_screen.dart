@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mnt_flutter/constants/CustomColors.dart';
+import 'package:mnt_flutter/ui/screens/service/order/service_order_screen.dart';
 
 class MntHomeScreen extends StatefulWidget {
   MntHomeScreen({Key key, this.title}) : super(key: key);
@@ -12,9 +14,8 @@ class MntHomeScreen extends StatefulWidget {
 class _MntHomeScreenState extends State<MntHomeScreen> {
   int _currentIndex = 0;
   final List<Widget> children = [
-    _HelloScreen("First"),
+    ServiceOrderScreen(),
     _HelloScreen("Second"),
-    _HelloScreen("Third"),
   ];
 
   @override
@@ -33,8 +34,8 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
       onTap: _onTabTapped,
       currentIndex: _currentIndex,
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.ac_unit), title: Text("")),
-        BottomNavigationBarItem(icon: Icon(Icons.wrap_text), title: Text(""))
+        BottomNavigationBarItem(icon: Icon(Icons.receipt), title: Text("S.S.")),
+        BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text("O.S."))
       ],
     );
   }
@@ -42,7 +43,7 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: CustomColors.defaultListBackground,
         bottomNavigationBar: _buildBottomNavigation(),
         body: children[_currentIndex]);
   }
