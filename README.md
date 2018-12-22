@@ -1,9 +1,17 @@
-# mnt_flutter
+# Mnt Ng Flutter
 
-Mnt NG application in flutter
+[Mnt NG application](https://play.google.com/store/apps/details?id=br.com.ngi.mnt)
+ interface in flutter
 
-## Status
+## About
 
-This is just a test, i will try to rewrite the MNT Ng application
-interface in flutter, to see if it is possible to migrate the project
-entirely to flutter
+This project is meant to be only the Mnt Ng **interface**, all the data
+exhibited here is fake.
+
+### Status
+
+The project only have a simple splash screen and the login screen,
+we're also experimenting some ui design changes, so the app will not look exactly
+like the original.
+
+
