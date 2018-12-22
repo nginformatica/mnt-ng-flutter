@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mnt_flutter/constants/CustomColors.dart';
+import 'package:mnt_flutter/constants/custom_colors.dart';
 import 'package:mnt_flutter/ui/screens/service/order/service_order_screen.dart';
 
 class MntHomeScreen extends StatefulWidget {

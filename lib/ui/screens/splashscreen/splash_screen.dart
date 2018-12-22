@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:mnt_flutter/constants/CustomColors.dart';
 import 'package:mnt_flutter/constants/assets.dart';
+import 'package:mnt_flutter/constants/custom_colors.dart';
 import 'package:mnt_flutter/navigation/router.dart';
 import 'package:mnt_flutter/ui/widgets/loaders/default_loader.dart';
 
