@@ -1,3 +1,3 @@
 class DatabaseInfo {
-  static const databaseName = "nice.db";
+  static const databaseName = "mnt_db.db";
 }

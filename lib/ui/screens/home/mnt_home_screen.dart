@@ -12,10 +12,10 @@ class MntHomeScreen extends StatefulWidget {
 }
 
 class _MntHomeScreenState extends State<MntHomeScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   final List<Widget> children = [
-    ServiceOrderScreen(),
     _HelloScreen("Second"),
+    ServiceOrderScreen(),
   ];
 
   @override
