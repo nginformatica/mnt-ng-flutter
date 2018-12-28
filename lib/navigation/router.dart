@@ -4,25 +4,23 @@ import 'package:mnt_flutter/constants/routes.dart';
 import 'package:mnt_flutter/ui/screens/home/mnt_home_screen.dart';
 import 'package:mnt_flutter/ui/screens/login/login_screen.dart';
 
-class Router {
-  static var routes = <String, WidgetBuilder>{
-    Routes.home: (BuildContext context) => MntHomeScreen(),
-    Routes.login: (BuildContext context) => LoginScreen(),
-  };
+var routes = <String, WidgetBuilder>{
+  Routes.home: (context) => const MntHomeScreen(),
+  Routes.login: (context) => const LoginScreen(),
+};
 
-  static void goToHome(BuildContext context) {
-    Navigator.pushReplacementNamed(context, Routes.home);
-  }
+void goToHome(BuildContext context) {
+  Navigator.pushReplacementNamed(context, Routes.home);
+}
 
-  static void goToLogin(BuildContext context) {
-    Navigator.pushReplacementNamed(context, Routes.login);
-  }
+void goToLogin(BuildContext context) {
+  Navigator.pushReplacementNamed(context, Routes.login);
+}
 
-  static void setStatusBarState({@required bool shown}) {
-    if (shown) {
-      SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
-    } else {
-      SystemChrome.setEnabledSystemUIOverlays([]);
-    }
+void setStatusBarState({@required bool shown}) {
+  if (shown) {
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+  } else {
+    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 }

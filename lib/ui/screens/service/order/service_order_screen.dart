@@ -10,11 +10,7 @@ class _ServiceOrderScreenState extends State<ServiceOrderScreen> {
   static const int generateCount = 100;
 
   @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: List.generate(generateCount, (index) {
-        return ServiceOrderCard(index);
-      }),
-    );
-  }
+  Widget build(BuildContext context) => ListView(
+      children:
+          List.generate(generateCount, (index) => ServiceOrderCard(index)));
 }

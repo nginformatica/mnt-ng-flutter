@@ -9,11 +9,9 @@ class LoginForm extends StatefulWidget {
   _LoginFormState createState() => _LoginFormState();
 }
 
-Widget _InputVerticalSpace(double value) {
-  return Padding(
-    padding: EdgeInsets.symmetric(vertical: value),
-  );
-}
+Widget _inputVerticalSpace(double value) => Padding(
+      padding: EdgeInsets.symmetric(vertical: value),
+    );
 
 // Define a corresponding State class. This class will hold the data related to
 // the form.
@@ -25,36 +23,30 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
   void _onDemoPress() {
-    Router.goToHome(context);
+    goToHome(context);
   }
 
   void _onLoginPress() {}
 
-  List<Widget> _children() {
-    return [
-      _InputVerticalSpace(5.0),
-      UserInput(hintText: "Usuário", iconData: Icons.person),
-      _InputVerticalSpace(5.0),
-      PasswordField(hintText: "Senha"),
-      _InputVerticalSpace(5.0),
-      LoginButtons(onDemoPress: _onDemoPress, onLoginPress: _onLoginPress)
-    ];
-  }
+  List<Widget> _children() => [
+        _inputVerticalSpace(5.0),
+        userInput(hintText: 'Usuário', iconData: Icons.person),
+        _inputVerticalSpace(5.0),
+        const PasswordField(hintText: 'Senha'),
+        _inputVerticalSpace(5.0),
+        loginButtons(onDemoPress: _onDemoPress, onLoginPress: _onLoginPress)
+      ];
 
   @override
-  Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey we created above
-    return Form(
-      key: _formKey,
-      child: OrientationBuilder(builder: (context, orientation) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: orientation == Orientation.portrait
-              ? MainAxisAlignment.start
-              : MainAxisAlignment.center,
-          children: _children(),
-        );
-      }),
-    );
-  }
+  Widget build(BuildContext context) => Form(
+        key: _formKey,
+        child: OrientationBuilder(
+            builder: (context, orientation) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: orientation == Orientation.portrait
+                      ? MainAxisAlignment.start
+                      : MainAxisAlignment.center,
+                  children: _children(),
+                )),
+      );
 }

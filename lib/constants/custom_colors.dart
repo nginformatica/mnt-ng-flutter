@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
 
-class CustomColors {
-  static const splashScreen = const Color(0xFFACBAC9);
-  static const defaultListBackground = const Color(0xFFECECEC);
-}
+const splashScreenBackground = Color(0xFFACBAC9);
+const defaultListBackground = Color(0xFFECECEC);

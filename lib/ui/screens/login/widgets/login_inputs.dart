@@ -3,23 +3,22 @@ import 'package:flutter/material.dart';
 const border =
     OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(3.0)));
 
-Widget UserInput({@required String hintText, @required IconData iconData}) {
-  return TextFormField(
-    decoration: InputDecoration(
-        prefixIcon: Icon(
-          iconData,
-        ),
-        border: border,
-        filled: true,
-        fillColor: Colors.white,
-        hintText: hintText),
-    validator: (value) {
-      if (value.isEmpty) {
-        return 'Please enter some text';
-      }
-    },
-  );
-}
+Widget userInput({@required String hintText, @required IconData iconData}) =>
+    TextFormField(
+      decoration: InputDecoration(
+          prefixIcon: Icon(
+            iconData,
+          ),
+          border: border,
+          filled: true,
+          fillColor: Colors.white,
+          hintText: hintText),
+      validator: (value) {
+        if (value.isEmpty) {
+          return 'Please enter some text';
+        }
+      },
+    );
 
 class PasswordField extends StatefulWidget {
   const PasswordField({
@@ -44,31 +43,29 @@ class _PasswordFieldState extends State<PasswordField> {
   bool _obscureText = true;
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      key: widget.fieldKey,
-      obscureText: _obscureText,
-      onSaved: widget.onSaved,
-      validator: widget.validator,
-      onFieldSubmitted: widget.onFieldSubmitted,
-      decoration: InputDecoration(
-        border: border,
-        fillColor: Colors.white,
-        filled: true,
-        hintText: widget.hintText,
-        prefixIcon: Icon(Icons.lock),
-        suffixIcon: GestureDetector(
-          onTap: () {
-            setState(() {
-              _obscureText = !_obscureText;
-            });
-          },
-          child: Icon(
-            _obscureText ? Icons.visibility : Icons.visibility_off,
-            semanticLabel: _obscureText ? 'show password' : 'hide password',
+  Widget build(BuildContext context) => TextFormField(
+        key: widget.fieldKey,
+        obscureText: _obscureText,
+        onSaved: widget.onSaved,
+        validator: widget.validator,
+        onFieldSubmitted: widget.onFieldSubmitted,
+        decoration: InputDecoration(
+          border: border,
+          fillColor: Colors.white,
+          filled: true,
+          hintText: widget.hintText,
+          prefixIcon: const Icon(Icons.lock),
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+            child: Icon(
+              _obscureText ? Icons.visibility : Icons.visibility_off,
+              semanticLabel: _obscureText ? 'show password' : 'hide password',
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
