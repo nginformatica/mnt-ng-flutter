@@ -38,7 +38,6 @@ linter:
   - avoid_single_cascade_in_expression_statements
   - avoid_types_on_closure_parameters
   - avoid_unused_constructor_parameters
-  - avoid_void_async
   - await_only_futures
   - cascade_invocations
   - curly_braces_in_flow_control_structures

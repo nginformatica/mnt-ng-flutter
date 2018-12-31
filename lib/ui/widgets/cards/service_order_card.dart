@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:mnt_flutter/data/entities/service_order.dart';
 
 class ServiceOrderCard extends StatelessWidget {
-  const ServiceOrderCard(this.index);
+  const ServiceOrderCard(this.order);
 
+  final ServiceOrder order;
   static const statusWidth = 130.0;
   static const cardHeight = 185.0;
-  final int index;
 
   Widget _buildCardWrapper({@required List<Widget> children}) => Center(
         child: Card(
@@ -25,10 +27,6 @@ class ServiceOrderCard extends StatelessWidget {
       );
 
   Widget _buildCardTitles(BuildContext context) {
-    final equipment = {
-      'id': 'MOTO Z001'.toUpperCase(),
-      'name': 'Servo Motor Grande'.toUpperCase()
-    };
     final theme = Theme.of(context);
     final equipmentIdStyle = theme.textTheme.title;
     final equipmentNameStyle = theme.textTheme.subhead
@@ -39,13 +37,13 @@ class ServiceOrderCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Flexible(
-          child: Text(equipment['id'],
+          child: Text(order.equipment.id.toUpperCase(),
               style: equipmentIdStyle,
               maxLines: 1,
               overflow: TextOverflow.ellipsis),
         ),
         Expanded(
-          child: Text(equipment['name'],
+          child: Text(order.equipment.name.toUpperCase(),
               style: equipmentNameStyle,
               maxLines: 1,
               overflow: TextOverflow.ellipsis),
@@ -79,7 +77,7 @@ class ServiceOrderCard extends StatelessWidget {
             right: 0.0,
             child: Center(
               child: Text(
-                '007296',
+                order.id,
                 style: orderIdStyle,
               ),
             ),
@@ -100,11 +98,11 @@ class ServiceOrderCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  '28/03/2005',
+                  DateFormat.yMd().format(order.expectedFinishDate),
                   style: statusTimeStyle,
                 ),
                 Text(
-                  '00:12',
+                  DateFormat.Hm().format(order.expectedFinishDate),
                   style: statusTimeStyle,
                 )
               ],
