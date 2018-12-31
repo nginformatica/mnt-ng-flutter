@@ -24,17 +24,44 @@ class ServiceOrderCard extends StatelessWidget {
         ),
       );
 
-  Widget _buildCardDataSpace(
-          {@required List<Widget> children, @required Color color}) =>
-      Container(
-        color: color,
-        child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: children,
-            )),
-      );
+  Widget _buildCardTitles(BuildContext context) {
+    final equipment = {
+      'id': 'MOTO Z001'.toUpperCase(),
+      'name': 'Servo Motor Grande'.toUpperCase()
+    };
+    final theme = Theme.of(context);
+    final equipmentIdStyle = theme.textTheme.title;
+    final equipmentNameStyle = theme.textTheme.subhead
+        .copyWith(color: Colors.grey, fontWeight: FontWeight.w300);
+
+    return Flex(
+      direction: Axis.horizontal,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Flexible(
+          child: Text(equipment['id'],
+              style: equipmentIdStyle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis),
+        ),
+        Expanded(
+          child: Text(equipment['name'],
+              style: equipmentNameStyle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCardDataSpace(BuildContext context) => Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: <Widget>[_buildCardTitles(context), const Divider()],
+        ),
+      ));
 
   Widget _buildCardStatusView(BuildContext context) {
     final theme = Theme.of(context);
@@ -94,11 +121,6 @@ class ServiceOrderCard extends StatelessWidget {
           child: _buildCardStatusView(context),
           width: statusWidth,
         ),
-        Expanded(
-          child: _buildCardDataSpace(
-            children: <Widget>[const Text('A  AA')],
-            color: Colors.white,
-          ),
-        )
+        Expanded(child: _buildCardDataSpace(context))
       ]);
 }
