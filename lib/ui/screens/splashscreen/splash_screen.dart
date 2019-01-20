@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mnt_flutter/constants/assets.dart';
 import 'package:mnt_flutter/constants/custom_colors.dart';
+import 'package:mnt_flutter/navigation/router.dart';
 import 'package:mnt_flutter/ui/widgets/loaders/default_loader.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Timer(Duration(seconds: 2), () => goToLogin(context));
+     Timer(Duration(seconds: 2), () => goToLogin(context));
   }
 
   @override
