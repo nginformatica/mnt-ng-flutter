@@ -41,10 +41,15 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
       );
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context){ 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Ordens de Serviço'),
+      ),
       backgroundColor: defaultListBackground,
       bottomNavigationBar: _buildBottomNavigation(),
       body: children[_currentIndex]);
+  }
 }
 
 class _HelloScreen extends StatelessWidget {
@@ -53,14 +58,16 @@ class _HelloScreen extends StatelessWidget {
   final String message;
 
   @override
-  Widget build(BuildContext context) => Stack(
-        children: <Widget>[
-          Center(
-            child: Text(
-              'Hello $message',
-              style: Theme.of(context).textTheme.display1,
-            ),
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Center(
+          child: Text(
+            'Hello $message',
+            style: Theme.of(context).textTheme.display1,
           ),
-        ],
-      );
+        ),
+      ],
+    );
+  }
 }
