@@ -1,4 +1,4 @@
 import 'package:flutter/material.dart';
 
-const splashScreenBackground = Color(0xFFACBAC9);
+const splashScreenBackground = Colors.indigo;
 const defaultListBackground = Color(0xFFECECEC);
