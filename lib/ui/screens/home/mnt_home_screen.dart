@@ -43,9 +43,6 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
   @override
   Widget build(BuildContext context){ 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Ordens de Serviço'),
-      ),
       backgroundColor: defaultListBackground,
       bottomNavigationBar: _buildBottomNavigation(),
       body: children[_currentIndex]);

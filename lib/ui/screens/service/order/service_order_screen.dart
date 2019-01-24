@@ -9,11 +9,23 @@ class ServiceOrderScreen extends StatefulWidget {
   _ServiceOrderScreenState createState() => _ServiceOrderScreenState();
 }
 
-class _ServiceOrderScreenState extends State<ServiceOrderScreen> {
+class _ServiceOrderScreenState extends State<ServiceOrderScreen>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
   static const int generateCount = 100;
 
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    _tabController = TabController(
+        vsync: this,
+        initialIndex: 1,
+        length: 4
+    );
+  }
+
+  Widget _buildMockedList(){
     const equipment = Equipment(
       id: 'Moto Z001',
       localization: 'Ferramentaria',
@@ -21,9 +33,9 @@ class _ServiceOrderScreenState extends State<ServiceOrderScreen> {
     );
 
     const service = OrderService(
-      id: 'Moto Z001',
-      name: 'Servo Motor Grande',
-      type: OrderServiceType.corrective
+        id: 'Moto Z001',
+        name: 'Servo Motor Grande',
+        type: OrderServiceType.corrective
     );
 
     final order = ServiceOrder(
@@ -32,11 +44,41 @@ class _ServiceOrderScreenState extends State<ServiceOrderScreen> {
         equipment: equipment,
         service: service
     );
-
     return ListView(
-        children: List.generate(generateCount, (index) {
-          return ServiceOrderCard(order);
-        })
+      children: List.generate(generateCount, (index) {
+        return ServiceOrderCard(order);
+      })
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ordens de Serviço'),
+        elevation: 0.7,
+        bottom: TabBar(
+          controller: _tabController,
+          indicatorColor: Colors.accents.first,
+          tabs: const <Widget>[
+            Tab(text: 'Dia'),
+            Tab(text: 'Semana'),
+            Tab(text: 'Mes'),
+            Tab(text: 'Todas'),
+          ],
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          _buildMockedList(),
+          _buildMockedList(),
+          _buildMockedList(),
+          _buildMockedList(),
+        ],
+      )
     );
   }
 }
