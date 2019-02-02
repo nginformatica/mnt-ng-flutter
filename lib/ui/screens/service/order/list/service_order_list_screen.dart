@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mnt_flutter/data/entities/equipment.dart';
 import 'package:mnt_flutter/data/entities/order_service.dart';
 import 'package:mnt_flutter/data/entities/service_order.dart';
+import 'package:mnt_flutter/navigation/router.dart';
 import 'package:mnt_flutter/ui/widgets/cards/service_order_card.dart';
 
-class ServiceOrderScreen extends StatefulWidget {
+class ServiceOrderListScreen extends StatefulWidget {
   @override
-  _ServiceOrderScreenState createState() => _ServiceOrderScreenState();
+  _ServiceOrderListScreenState createState() => _ServiceOrderListScreenState();
 }
 
-class _ServiceOrderScreenState extends State<ServiceOrderScreen>
+class _ServiceOrderListScreenState extends State<ServiceOrderListScreen>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
   static const int generateCount = 100;
@@ -53,8 +54,6 @@ class _ServiceOrderScreenState extends State<ServiceOrderScreen>
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Ordens de Serviço'),
@@ -69,6 +68,13 @@ class _ServiceOrderScreenState extends State<ServiceOrderScreen>
             Tab(text: 'Todas'),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red[800],
+        child: const Icon(Icons.add),
+        onPressed: (){
+          goToCreateOrder(context);
+        }
       ),
       body: TabBarView(
         controller: _tabController,

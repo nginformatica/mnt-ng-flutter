@@ -6,6 +6,7 @@ import 'package:sqflite/sqflite.dart';
 
 void main() {
   debugPaintSizeEnabled = false;
+  debugPaintPointersEnabled = false;
   runApp(MntApp());
 }
 
