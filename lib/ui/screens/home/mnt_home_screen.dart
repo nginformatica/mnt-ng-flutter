@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mnt_flutter/constants/custom_colors.dart';
+import 'package:mnt_flutter/ui/screens/counters/list/counters_list_screen.dart';
 import 'package:mnt_flutter/ui/screens/service/order/list/service_order_list_screen.dart';
 
 class MntHomeScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
   final List<Widget> children = [
     const _HelloScreen('Second'),
     ServiceOrderListScreen(),
+    CountersListScreen(),
   ];
 
   @override
@@ -34,9 +36,17 @@ class _MntHomeScreenState extends State<MntHomeScreen> {
         currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.receipt), title: Text('S.S.')),
+              icon: Icon(Icons.receipt),
+              title: Text('S.S.')
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), title: Text('O.S.'))
+              icon: Icon(Icons.settings),
+              title: Text('O.S.')
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.av_timer),
+              title: Text('Contadores')
+          )
         ],
       );
 
